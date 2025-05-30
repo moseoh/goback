@@ -1,0 +1,18 @@
+services:
+  mariadb-test:
+    build: .
+    container_name: mariadb-test-container
+    ports:
+      - "25001:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=qwe123
+      - MYSQL_DATABASE=testdb
+    volumes:
+      # 데이터 영속성을 위한 볼륨
+      - mariadb_data:/var/lib/mysql
+      # CSV 데이터 마운트 (common 폴더에서)
+      - ../common/csv_data:/csv_data:ro
+
+volumes:
+  mariadb_data:
+    driver: local
