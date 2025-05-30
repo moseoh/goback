@@ -1,0 +1,9 @@
+[project]
+name = "test-data-generator"
+version = "1.0.0"
+description = "대용량 테스트 데이터를 빠르게 생성하는 Python 스크립트"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "python-dotenv>=1.0.0",
+]
