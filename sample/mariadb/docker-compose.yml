@@ -1,6 +1,6 @@
 services:
   mariadb-test:
-    build: .
+    image: mariadb:11.4
     container_name: mariadb-test-container
     ports:
       - "25001:3306"
@@ -10,8 +10,10 @@ services:
     volumes:
       # 데이터 영속성을 위한 볼륨
       - mariadb_data:/var/lib/mysql
-      # CSV 데이터 마운트 (common 폴더에서)
-      - ../common/csv_data:/csv_data:ro
+      # SQL 초기화 스크립트 마운트
+      - ./data_generator/output/sql:/docker-entrypoint-initdb.d:ro
+      # CSV 데이터 마운트
+      - ./data_generator/output/csv_data:/csv_data:ro
 
 volumes:
   mariadb_data:
