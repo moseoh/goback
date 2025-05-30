@@ -1,0 +1,21 @@
+{
+  "name": "github-repo-tools",
+  "version": "1.0.0",
+  "description": "GitHub 저장소 관리 도구",
+  "type": "commonjs",
+  "scripts": {
+    "prepare": "npm start all",
+    "build": "tsc",
+    "start": "ts-node --transpile-only src/index.ts",
+    "protect": "ts-node --transpile-only src/actions/protect-branch.ts",
+    "auto-delete": "ts-node --transpile-only src/actions/auto-delete-branch.ts",
+    "squash-merge": "ts-node --transpile-only src/actions/set-squash-merge.ts"
+  },
+  "devDependencies": {
+    "@octokit/rest": "^21.1.1",
+    "@types/node": "^20.10.6",
+    "dotenv": "^16.5.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
